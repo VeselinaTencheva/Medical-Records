@@ -1,0 +1,30 @@
+package com.university.MedicalRecords.entities;
+
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import javax.persistence.*;
+import java.util.List;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@Entity
+@Table(name = "doctor")
+public class Doctor extends User{
+
+    @Column(name = "specialization", nullable = false)
+    private Specialization specialization;
+
+    @Column(name = "is_gp",nullable = false)
+    private boolean isGp;
+
+    @OneToMany(mappedBy = "doctor", cascade = CascadeType.ALL)
+    private List<Patient> patients;
+
+    @OneToMany(mappedBy = "doctor", cascade = CascadeType.ALL)
+    private List<MedicalExamination> medicalExaminations;
+
+
+}

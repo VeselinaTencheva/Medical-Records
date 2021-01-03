@@ -20,7 +20,8 @@ public class RoleServiceImpl implements RoleService{
     }
 
     @Override
-    public Role edit(Role role) {
+    public Role edit(long id,Role role) {
+        role.setId(id);
         return this.roleRepository.saveAndFlush(role);
     }
 
@@ -30,7 +31,7 @@ public class RoleServiceImpl implements RoleService{
     }
 
     @Override
-    public Role findById(String id) {
+    public Role findById(long id) {
         return this.roleRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Role not found"));
     }
 

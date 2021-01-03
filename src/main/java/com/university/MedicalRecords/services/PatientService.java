@@ -7,8 +7,8 @@ import java.util.List;
 
 public interface PatientService {
     Patient create(Patient patient);
-    Patient edit(Patient patient);
+    Patient edit(long id,Patient patient);
     void delete(Patient patient);
-    Patient findById(String id);
+    Patient findById(long id);
     List<Patient> findAll();
 }

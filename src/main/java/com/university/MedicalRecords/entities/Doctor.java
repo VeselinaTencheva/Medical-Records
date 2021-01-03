@@ -1,5 +1,6 @@
 package com.university.MedicalRecords.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -21,9 +22,11 @@ public class Doctor extends User{
     private boolean isGp;
 
     @OneToMany(mappedBy = "doctor", cascade = CascadeType.ALL)
+    @JsonIgnoreProperties
     private List<Patient> patients;
 
     @OneToMany(mappedBy = "doctor", cascade = CascadeType.ALL)
+    @JsonIgnoreProperties
     private List<MedicalExamination> medicalExaminations;
 
 

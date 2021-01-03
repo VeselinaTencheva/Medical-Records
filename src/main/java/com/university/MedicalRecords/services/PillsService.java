@@ -7,8 +7,8 @@ import java.util.List;
 
 public interface PillsService {
     Pills create(Pills pills);
-    Pills edit(Pills pills);
+    Pills edit(long id,Pills pills);
     void delete(Pills pills);
-    Pills findById(String id);
+    Pills findById(long id);
     List<Pills> findAll();
 }

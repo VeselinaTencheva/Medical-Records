@@ -22,7 +22,8 @@ public class DoctorServiceImpl implements DoctorService{
     }
 
     @Override
-    public Doctor edit(Doctor doctor) {
+    public Doctor edit(long id,Doctor doctor) {
+        doctor.setId(id);
         return this.doctorRepository.saveAndFlush(doctor);
     }
 
@@ -32,7 +33,7 @@ public class DoctorServiceImpl implements DoctorService{
     }
 
     @Override
-    public Doctor findById(String id) {
+    public Doctor findById(long id) {
         return this.doctorRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Doctor not found"));
     }
 

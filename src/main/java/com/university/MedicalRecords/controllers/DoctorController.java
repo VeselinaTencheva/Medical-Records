@@ -8,18 +8,18 @@ import org.springframework.web.bind.annotation.*;
 import javax.print.Doc;
 import java.util.List;
 
+//@CrossOrigin(origins = "http://localhost:4200")
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
 @AllArgsConstructor
 public class DoctorController {
     private final DoctorService doctorService;
 
-    @GetMapping("/doctors")
+    @GetMapping(value="/doctors")
     public List<Doctor> getDoctors() {
         return doctorService.findAll();
     }
 
-    @PostMapping("/doctors")
+    @PostMapping(value="/doctors")
     void addDoctor(@RequestBody Doctor doctor) {
         this.doctorService.create(doctor);
     }

@@ -6,8 +6,8 @@ import java.util.List;
 
 public interface DiagnosisService  {
     Diagnosis createDiagnosis(Diagnosis diagnosis);
-    Diagnosis editDiagnosis(Diagnosis diagnosis);
+    Diagnosis editDiagnosis(long id,Diagnosis diagnosis);
     void deleteDiagnosis(Diagnosis diagnosis);
-    Diagnosis findById(String id);
+    Diagnosis findById(long id);
     List<Diagnosis> findAll();
 }

@@ -20,7 +20,8 @@ public class PatientServiceImpl implements PatientService{
     }
 
     @Override
-    public Patient edit(Patient patient) {
+    public Patient edit(long id,Patient patient) {
+        patient.setId(id);
         return this.patientRepository.saveAndFlush(patient);
     }
 
@@ -30,7 +31,7 @@ public class PatientServiceImpl implements PatientService{
     }
 
     @Override
-    public Patient findById(String id) {
+    public Patient findById(long id) {
         return this.patientRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Patient not found"));
     }
 

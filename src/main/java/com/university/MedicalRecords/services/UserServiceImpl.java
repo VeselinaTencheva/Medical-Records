@@ -20,7 +20,8 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public User edit(User user) {
+    public User edit(long id,User user) {
+        user.setId(id);
         return this.userRepository.saveAndFlush(user);
     }
 
@@ -30,7 +31,7 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public User findById(String id) {
+    public User findById(long id) {
         return this.userRepository.findById(id).orElseThrow(()-> new IllegalArgumentException("User not found"));
     }
 

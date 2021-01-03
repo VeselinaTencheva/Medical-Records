@@ -20,7 +20,8 @@ public class MedicalExaminationServiceImpl implements MedicalExaminationService{
     }
 
     @Override
-    public MedicalExamination edit(MedicalExamination medicalExamination) {
+    public MedicalExamination edit(long id,MedicalExamination medicalExamination) {
+        medicalExamination.setId(id);
         return this.medicalExaminationRepository.saveAndFlush(medicalExamination);
     }
 
@@ -30,7 +31,7 @@ public class MedicalExaminationServiceImpl implements MedicalExaminationService{
     }
 
     @Override
-    public MedicalExamination findById(String id) {
+    public MedicalExamination findById(long id) {
         return this.medicalExaminationRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Medical Examination not found"));
     }
 

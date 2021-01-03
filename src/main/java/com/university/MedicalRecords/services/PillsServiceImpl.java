@@ -21,7 +21,8 @@ public class PillsServiceImpl implements PillsService {
     }
 
     @Override
-    public Pills edit(Pills pills) {
+    public Pills edit(long id,Pills pills) {
+        pills.setId(id);
         return this.pillsRepository.saveAndFlush(pills);
     }
 
@@ -31,7 +32,7 @@ public class PillsServiceImpl implements PillsService {
     }
 
     @Override
-    public Pills findById(String id) {
+    public Pills findById(long id) {
         return this.pillsRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Pill not found"));
     }
 

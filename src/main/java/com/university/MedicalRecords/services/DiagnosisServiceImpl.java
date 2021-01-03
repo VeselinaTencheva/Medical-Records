@@ -20,7 +20,8 @@ public class DiagnosisServiceImpl implements DiagnosisService{
     }
 
     @Override
-    public Diagnosis editDiagnosis(Diagnosis diagnosis) {
+    public Diagnosis editDiagnosis(long id,Diagnosis diagnosis) {
+        diagnosis.setId(id);
         return this.diagnosisRepository.saveAndFlush(diagnosis);
     }
 
@@ -30,7 +31,7 @@ public class DiagnosisServiceImpl implements DiagnosisService{
     }
 
     @Override
-    public Diagnosis findById(String id) {
+    public Diagnosis findById(long id) {
         return this.diagnosisRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Diagnosis not found"));
     }
 

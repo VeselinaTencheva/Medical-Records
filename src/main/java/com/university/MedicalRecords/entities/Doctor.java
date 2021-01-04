@@ -15,7 +15,7 @@ import java.util.List;
 @Table(name = "doctor")
 public class Doctor extends User{
 
-    @Column(name = "specialization", nullable = false)
+    @Enumerated
     private Specialization specialization;
 
     @Column(name = "is_gp",nullable = false)

@@ -17,6 +17,10 @@ public class Pills extends BaseEntity{
     @Column(name = "name",nullable = false)
     private String name;
 
+    @Column(name = "description",nullable = false)
+    private String description;
+
+
 //    @ManyToMany(fetch = FetchType.EAGER)
 //    private List<Diagnosis> diagnosisList;
 

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head th:replace="head :: head"></head>
+<body>
+<header th:replace="header :: header"></header>
+<h4 th:if="${pills.size()>0}" th:text="'Pills: ' + ${pills.size()}"> </h4>
+<div class=" col-12">
+    <h3 th:unless="${pills} and ${pills.size()}">There are no pills!</h3>
+    <table th:if="${pills.size()>0}" class="table table-hover">
+        <th>Id</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Edit</th>
+        <th>Delete</th>
+        <tr th:each="pill : ${pills}">
+            <td th:text="${pill.id}"></td>
+            <td th:text="${pill.name}"></td>
+            <td th:text="${pill.description}"></td>
+            <td>
+                <a class="btn btn-info" th:href="@{'/pills/edit/'+${pill.id}}">Edit</a>
+            </td>
+            <td>
+                <a class="btn btn-danger" th:href="@{'/pills/delete/'+${pill.id}}">Delete</a>
+            </td>
+
+        </tr>
+    </table>
+</div>
+<div>
+    <a class="btn btn-info" th:href="@{'/pills/create'}">Add Pill</a>
+</div>
+<footer th:replace="footer :: footer"></footer>
+</body>
+</html>

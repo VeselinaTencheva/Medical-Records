@@ -3,6 +3,7 @@ package com.university.MedicalRecords.controllers.api;
 import com.university.MedicalRecords.entities.Pills;
 import com.university.MedicalRecords.services.PillsService;
 import lombok.AllArgsConstructor;
+import org.modelmapper.ModelMapper;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -10,8 +11,11 @@ import java.util.List;
 @RestController
 @AllArgsConstructor
 @RequestMapping("/api/pills")
-public class PillsController {
+public class PillsApiController {
+
     private final PillsService pillsService;
+//    private final ModelMapper modelMapper;
+
 
     @GetMapping()
     public List<Pills> getPills(){
